@@ -13,6 +13,8 @@
 // ----------------------------------------------------------------------------------
 
 using Microsoft.Azure.Commands.StorageSync.Models;
+using System.Collections;
+using System.Collections.Generic;
 using StorageSyncModels = Microsoft.Azure.Management.StorageSync.Models;
 
 namespace Microsoft.Azure.Commands.StorageSync.Common.Converters
@@ -44,6 +46,7 @@ namespace Microsoft.Azure.Commands.StorageSync.Common.Converters
             source.PrivateEndpointConnectionName,
             source.Type,
             new SystemDataConverter().Convert(source.SystemData),
+            source.GroupIds,
             new PrivateEndpointConverter().Convert(source.PrivateEndpoint),
             source.ProvisioningState);
 
